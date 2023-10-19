@@ -33,7 +33,7 @@ function openPaymentLink() {
     //     console.error('Error occurred during payment:', error);
     // }
 
-    if (navigator.share) {
+    if (navigator.open) {
     // The Web Share API is supported
     var shareData = {
         title: 'Shared from My Website',
