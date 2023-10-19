@@ -14,11 +14,11 @@
     <script>
 function openPaymentLink() {
     // try {
-    //     var paymentDetails = {
-    //         amount: 1, // Example amount in INR
-    //         orderId: 'ORDER123', // Unique order ID
-    //         // Add more payment details as needed
-    //     };
+        var paymentDetails = {
+            amount: 1, // Example amount in INR
+            orderId: 'ORDER123', // Unique order ID
+            // Add more payment details as needed
+        };
 
         var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
     //     var upiUrl = 'https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjujdKx7oGCAxUDSWwGHaAxA2gQPAgJ';
@@ -33,12 +33,12 @@ function openPaymentLink() {
     //     console.error('Error occurred during payment:', error);
     // }
 
-    if (navigator.open) {
+    if (navigator.share) {
     // The Web Share API is supported
     var shareData = {
         title: 'Shared from My Website',
         text: 'Check out this link!',
-        url: 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR'
+        url: upiUrl
     };
 
     navigator.share(shareData)
