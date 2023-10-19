@@ -20,24 +20,14 @@ function openPaymentLink() {
             // Add more payment details as needed
         };
 
-        // Construct the UPI URL with additional query parameters for status and order ID
-        var upiUrl = 'upi://pay?pa=ajayk@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
-
-        // Append payment status and order ID as query parameters to the redirect URL
-        var redirectUrl = 'https://payment-gatway-ajayk108.vercel.app/payment-complete?orderId=' + paymentDetails.orderId + '&transactionId=TXN123&status=success'; // Modify the URL as needed
+        var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
         // Create an anchor tag with the UPI URL
         var paymentLink = document.createElement('a');
         paymentLink.href = upiUrl;
 
-        // Redirect the user to the payment app
-        // window.location.href = redirectUrl;
-
-        // Show payment parameters using alert
-        alert('Payment Status: success\nOrder ID: ' + paymentDetails.orderId + '\nTransaction ID: TXN123');
-
-        // Trigger a click event on the anchor tag (optional)
-        // paymentLink.click();
+        // Trigger a click event on the anchor tag
+        paymentLink.click();
     } catch (error) {
         console.error('Error occurred during payment:', error);
     }
