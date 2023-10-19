@@ -12,22 +12,27 @@
     </form>
     
     <script>
-  function openPaymentLink() {
-    var paymentDetails = {
-        amount: 1, // Example amount in INR
-        orderId: 'ORDER123', // Unique order ID
-        // Add more payment details as needed
-    };
+function openPaymentLink() {
+    try {
+        var paymentDetails = {
+            amount: 1, // Example amount in INR
+            orderId: 'ORDER123', // Unique order ID
+            // Add more payment details as needed
+        };
 
-    var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
+        var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
-    // Create an anchor tag with the UPI URL
-    var paymentLink = document.createElement('a');
-    paymentLink.href = upiUrl;
+        // Create an anchor tag with the UPI URL
+        var paymentLink = document.createElement('a');
+        paymentLink.href = upiUrl;
 
-    // Trigger a click event on the anchor tag
-    paymentLink.click();
+        // Trigger a click event on the anchor tag
+        paymentLink.click();
+    } catch (error) {
+        console.error('Error occurred during payment:', error);
+    }
 }
+
 
 
 
