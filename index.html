@@ -19,7 +19,7 @@
         // Add more payment details as needed
     };
 
-    var upiUrl = 'upi://pay?pa=ajaykasturi108@ybl&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
+    var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
     // Create an anchor tag with the UPI URL
     var paymentLink = document.createElement('a');
