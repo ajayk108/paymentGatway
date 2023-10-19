@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paymentGetway</title>
+</head>
+<body>
+    <form id="appointmentForm">
+        <!-- Your appointment form fields go here (name, email, etc.) -->
+        <input type="button" value="Pay Now" onclick="openPaymentPopup()">
+    </form>
+    
+    <script>
+        function openPaymentPopup() {
+    // Prepare your payment details (amount, order ID, etc.)
+    var paymentDetails = {
+        amount: 100, // Example amount in INR
+        orderId: 'ORDER123', // Unique order ID
+        // Add more payment details as needed
+    };
+
+    // Construct UPI payment URL (for example, PhonePe)
+    var upiUrl = 'upi://pay?pa=example@upi&pn=Merchant&mc=1234&tid=' + paymentDetails.orderId + '&tn=Payment%20for%20Order&am=' + paymentDetails.amount + '&cu=INR';
+
+    // Share the UPI payment URL using navigator.share API
+    if (navigator.share) {
+        navigator.share({
+            title: 'Make a Payment',
+            text: 'Click the payment link to pay for your order',
+            url: upiUrl
+        })
+        .then(() => {
+            console.log('Shared successfully');
+        })
+        .catch((error) => {
+            console.error('Error sharing:', error);
+        });
+    } else {
+        // If navigator.share is not supported, provide an alternative method or redirect the user to a payment page.
+        alert('UPI payment is not supported on this device.');
+    }
+}
+
+    </script>
+</body>
+</html>
