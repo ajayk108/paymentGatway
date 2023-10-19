@@ -20,7 +20,8 @@ function openPaymentLink() {
             // Add more payment details as needed
         };
 
-        var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
+        // var upiUrl = 'upi://pay?pa=ajaykasturi@pingpay&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
+        var upiUrl = 'https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwjujdKx7oGCAxUDSWwGHaAxA2gQPAgJ';
 
         // Create an anchor tag with the UPI URL
         var paymentLink = document.createElement('a');
