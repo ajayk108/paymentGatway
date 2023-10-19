@@ -33,21 +33,9 @@ function openPaymentLink() {
     //     console.error('Error occurred during payment:', error);
     // }
 
-    if (navigator.open) {
-    // The Web Share API is supported
-    var shareData = {
-        title: 'Shared from My Website',
-        text: 'Check out this link!',
-        url: upiUrl
-    };
-
-    navigator.open(shareData)
-        .then(function() {
-            console.log('Shared successfully');
-        })
-        .catch(function(error) {
-            console.error('Error sharing:', error);
-        });
+    if (upiUrl) {
+        window.open(upiUrl);
+    
 } else {
     // The Web Share API is not supported, handle accordingly
     console.error('Web Share API is not supported in this browser');
