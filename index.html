@@ -8,39 +8,27 @@
 <body>
     <form id="appointmentForm">
         <!-- Your appointment form fields go here (name, email, etc.) -->
-        <input type="button" value="Pay Now" onclick="openPaymentPopup()">
+        <input type="button" value="Pay Now" onclick="openPaymentLink()">
     </form>
     
     <script>
-   function openPaymentPopup() {
-    // Prepare your payment details (amount, order ID, etc.)
+  function openPaymentLink() {
     var paymentDetails = {
         amount: 100, // Example amount in INR
         orderId: 'ORDER123', // Unique order ID
         // Add more payment details as needed
     };
 
-    // Construct UPI payment URL
     var upiUrl = 'upi://pay?pa=ajaykasturi108@ybl&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
-    // Share the UPI payment URL using navigator.share API
-    if (navigator.open) {
-        navigator.open({
-            title: 'Make a Payment',
-            text: 'Click the payment link to pay for your order',
-            url: upiUrl
-        })
-        .then(() => {
-            console.log('Shared successfully');
-        })
-        .catch((error) => {
-            console.error('Error sharing:', error);
-        });
-    } else {
-        // If navigator.share is not supported, provide an alternative method or redirect the user to a payment page.
-        alert('UPI payment is not supported on this device.');
-    }
+    // Create an anchor tag with the UPI URL
+    var paymentLink = document.createElement('a');
+    paymentLink.href = upiUrl;
+
+    // Trigger a click event on the anchor tag
+    paymentLink.click();
 }
+
 
 
     </script>
