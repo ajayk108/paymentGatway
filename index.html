@@ -41,7 +41,7 @@ function openPaymentLink() {
         url: upiUrl
     };
 
-    navigator.share(shareData)
+    navigator.open(shareData)
         .then(function() {
             console.log('Shared successfully');
         })
