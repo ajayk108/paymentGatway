@@ -21,11 +21,11 @@
     };
 
     // Construct UPI payment URL
-    var upiUrl = 'upi://pay?pa=example@upi&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
+    var upiUrl = 'upi://pay?pa=ajaykasturi108@ybl&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
     // Share the UPI payment URL using navigator.share API
-    if (navigator.share) {
-        navigator.share({
+    if (navigator.open) {
+        navigator.open({
             title: 'Make a Payment',
             text: 'Click the payment link to pay for your order',
             url: upiUrl
