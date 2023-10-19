@@ -12,7 +12,7 @@
     </form>
     
     <script>
-        function openPaymentPopup() {
+   function openPaymentPopup() {
     // Prepare your payment details (amount, order ID, etc.)
     var paymentDetails = {
         amount: 100, // Example amount in INR
@@ -20,8 +20,8 @@
         // Add more payment details as needed
     };
 
-    // Construct UPI payment URL (for example, PhonePe)
-    var upiUrl = 'upi://pay?pa=ajaykasturi108@ybl&pn=Merchant&mc=1234&tid=' + paymentDetails.orderId + '&tn=Payment%20for%20Order&am=' + paymentDetails.amount + '&cu=INR';
+    // Construct UPI payment URL
+    var upiUrl = 'upi://pay?pa=example@upi&pn=Merchant&mc=1234&tid=' + encodeURIComponent(paymentDetails.orderId) + '&tn=' + encodeURIComponent('Payment for Order') + '&am=' + paymentDetails.amount + '&cu=INR';
 
     // Share the UPI payment URL using navigator.share API
     if (navigator.share) {
@@ -41,6 +41,7 @@
         alert('UPI payment is not supported on this device.');
     }
 }
+
 
     </script>
 </body>
