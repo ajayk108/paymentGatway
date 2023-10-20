@@ -1,3 +1,6 @@
+<?php
+print_r($_POST);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,4 +41,4 @@ function openPaymentLink() {
 
     </script>
 </body>
-</html>
+</html>     
